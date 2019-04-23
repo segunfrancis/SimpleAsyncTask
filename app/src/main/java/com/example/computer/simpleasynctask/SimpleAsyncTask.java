@@ -6,7 +6,7 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 import java.util.Random;
 
-public class SimpleAsyncTask extends AsyncTask<Void, Void, String> {
+public class SimpleAsyncTask extends AsyncTask<Void, Integer, String> {
     /*
      * first AsyncTaskParameter is parameter for doInBackground()
      * second AsyncTaskParameter is parameter for onProgressUpdated()
@@ -14,6 +14,7 @@ public class SimpleAsyncTask extends AsyncTask<Void, Void, String> {
      */
 
     private WeakReference<TextView> mTextView;
+    private int n, s;
 
     /**
      * If you pass a TextView into the AsyncTask constructor and then store it in a member variable,
@@ -46,8 +47,8 @@ public class SimpleAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... voids) {
         Random random = new Random();
-        int n = random.nextInt(11);
-        int s = n * 200;
+        n = random.nextInt(11);
+        s = n * 400;
 
         try {
             Thread.sleep(s);
